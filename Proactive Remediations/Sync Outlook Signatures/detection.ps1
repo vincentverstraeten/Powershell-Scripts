@@ -12,12 +12,16 @@ $SignatureOutlook = Join-Path $env:APPDATA -ChildPath "Microsoft/Signatures"
 
 try
 {
+    if (!(test-path -Path "$SignatureOnedrive") -and !(test-path -Path "$SignatureOutlook") ) { 
+        write-host Outlook Signature and Onedrive does not exist. Wait till Outlook signature is set.
+        exit 0
+    }
     if (!(test-path -Path "$SignatureOnedrive") -or !(test-path -Path "$SignatureOutlook") ) { 
-        # Outlook Signature or Microsoft signature does not exist in Onedrive, remediation needed
+        write-host Outlook Signature or Microsoft signature does not exist in Onedrive, remediation needed
         exit 1
     }
     if (!(test-path -Path "$SignatureOutlook") -or ((Get-Item -Path $SignatureOutlook  -Force).LinkType -ne "Junction") ) { 
-    # Outlook Junction Signature does not exist in Appdata/Microsoft/Outlook, remediation needed
+    write-host Outlook Junction Signature does not exist in Appdata/Microsoft/Outlook, remediation needed
     exit 1
    }
 else {
