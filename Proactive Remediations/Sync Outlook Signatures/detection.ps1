@@ -13,7 +13,7 @@ $SignatureOutlook = Join-Path $env:APPDATA -ChildPath "Microsoft/Signatures"
 try
 {
     if (!(test-path -Path "$SignatureOnedrive") -and !(test-path -Path "$SignatureOutlook") ) { 
-        # Outlook Signature and Onedrive does not exist. Wait till Outlook signature is set.
+        # Outlook Signature and Onedrive does not exist. Wait till Outlook signature is set in %APPDATA%.
         exit 0
     }
     if (!(test-path -Path "$SignatureOnedrive") -or !(test-path -Path "$SignatureOutlook") ) { 
