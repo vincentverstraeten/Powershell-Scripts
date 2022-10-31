@@ -21,7 +21,7 @@ if ((Test-Path -Path $LocalOutlookSignature -ErrorAction SilentlyContinue) -or (
     Remove-Item -LiteralPath $LocalOutlookSignature -Force -Recurse
         if(!(Test-Path -Path $SignatureOnedrive)){
                 mkdir $SignatureOnedrive
-                # Make onedrive map
+                # Make onedrive signatures map
          }
         else{
                 # Onedrive map is already there
@@ -32,7 +32,7 @@ if ((Test-Path -Path $LocalOutlookSignature -ErrorAction SilentlyContinue) -or (
     # Copy over local signature data to onedrive
 }
 
-#Check if onedrive signature map is present but local microsoft signature outlook is not there. Then copy Onedrive Signature to outlook signature.
+#Check if onedrive signatures map is present but local microsoft signature outlook is not there. Then copy Onedrive Signature to outlook signature.
 
 if (!(Test-Path $LocalOutlookSignature)) {
     Copy-Item -Path $SignatureOnedrive -Destination $LocalOutlookBackupSignature -recurse -Force
