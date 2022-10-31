@@ -17,11 +17,11 @@ try
         exit 0
     }
     if (!(test-path -Path "$SignatureOnedrive") -or !(test-path -Path "$SignatureOutlook") ) { 
-        # Outlook Signature or Microsoft signature does not exist in Onedrive, remediation needed
+        # Outlook Signature or Microsoft signature does not exist in Onedrive, remediation needed.
         exit 1
     }
     if (!(test-path -Path "$SignatureOutlook") -or ((Get-Item -Path $SignatureOutlook  -Force).LinkType -ne "Junction") ) { 
-    write-host Outlook Junction Signature does not exist in Appdata/Microsoft/Outlook, remediation needed
+    # Outlook Junction Signature does not exist in Appdata/Microsoft/Outlook, remediation needed
     exit 1
    }
 else {
