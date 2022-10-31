@@ -23,9 +23,6 @@ if ((Test-Path -Path $LocalOutlookSignature -ErrorAction SilentlyContinue) -or (
                 mkdir $SignatureOnedrive
                 # Make onedrive signatures map
          }
-        else{
-                # Onedrive map is already there
-          }
     cmd /c mklink /J $LocalOutlookSignature $SignatureOnedrive #Powershell command needs admin, only in preview windows(better use cmd here)
     Copy-Item -Path "$LocalOutlookBackupSignature\*" -Destination $LocalOutlookSignature -recurse -Force
     Remove-Item -LiteralPath $LocalOutlookBackupSignature -Force -Recurse
